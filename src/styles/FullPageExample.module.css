@@ -1,0 +1,558 @@
+.section {
+  display: flex;
+  justify-content: center;
+  height: 100vh; /* Đảm bảo mỗi section chiếm toàn màn hình */
+  font-size: 24px;
+  text-align: center;
+  position: relative;
+  opacity: 0; /* Ẩn section ban đầu */
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.section:nth-child(odd) {
+  background-color: #0e0e0e;
+}
+
+.section:nth-child(even) {
+  background-color: #100f0f;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Cha bao quanh phần nội dung */
+.pageOne {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+}
+
+.pageOneContent {
+  height: auto;
+  width: 100%;
+  align-items: center;
+  color: #1a2a59;
+  left: 0;
+  margin: 0 auto;
+  padding: 0;
+  position: fixed;
+  right: 0;
+  text-align: left;
+  top: 0;
+  z-index: 5;
+}
+
+.banner {
+  position: absolute;
+  width: 100%;
+  height: auto;
+}
+
+.bannerImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+  left: 50%;
+  min-height: 100vh;
+  min-width: 177.77vh;
+  pointer-events: none;
+}
+
+.pageOneText {
+  height: 100%;
+  margin-left: 10%;
+  width: 100%;
+  position: absolute;
+}
+
+.mdText .title {
+  font-size: 95.5px;
+  margin-left: 10%;
+  font-weight: 700;
+  line-height: 92px;
+  margin-left: -5px;
+  margin-top: 225px;
+  min-width: 358px;
+  padding-bottom: 14px;
+  position: relative;
+  opacity: 0;
+  visibility: hidden;
+  /* transform: translateY(-100%); 
+  animation: slideDown 2s ease-out;
+  visibility: hidden; */
+}
+@keyframes slideDown {
+  from {
+      transform: translateY(-150%);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+.smText .description {
+  color: #222;
+  font-size: 20.5px;
+  font-weight: 1;
+  line-height: 1.41;
+  margin-top: 10px;
+  position: relative;
+  white-space: pre-line;
+  width: 415px;
+  opacity: 0;
+  visibility: hidden;
+  
+}
+@keyframes slideLeft {
+  from {
+      transform: translateX(-100%);
+      opacity: 0;
+  }
+  to {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
+.sideNav {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  background-color: gray;
+  border-radius: 50%;
+}
+
+.indicator.active {
+  background-color: orange;
+}
+.banner2 {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full screen height */
+  background-image: url('/img/banner2.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pageTwoContent{
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  color: #9fa2ab;
+  left: 0;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  right: 0;
+  text-align: left;
+  top: 0;
+  z-index: 5;
+}
+.textOverlay {
+text-align:left;
+font-size: 20px;/* Optional: Add semi-transparent background */
+color: #fff;
+  cursor: text;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  transition: all .2s;
+  white-space: pre-wrap;
+  word-break: break-all;
+  opacity: 0;
+  visibility: hidden;
+
+}
+.bannerImage {
+  width: 100%; /* Chiếm toàn bộ chiều rộng container */
+  height: auto; /* Giữ nguyên tỷ lệ khung hình */
+  object-fit: cover; /* Lấp đầy khung mà không méo ảnh */
+  transition: transform 0.5s ease, opacity 0.5s ease; /* Hiệu ứng mượt */
+  position: static;
+}
+.slideIn {
+transform: translateX(0);
+}
+
+/* Thêm class mới để khởi tạo trạng thái ban đầu */
+
+/* Animation khi section active */
+.section.active .mdText .title {
+  opacity: 1;
+  visibility: visible;
+  animation: slideDown 1s ease-out forwards;
+}
+
+.section.active .smText .description {
+  opacity: 1;
+  visibility: visible;
+  animation: slideLeft 1s ease-out forwards;
+}
+
+.section.active .textOverlay {
+  opacity: 1;
+  visibility: visible;
+  animation: slideLeft 0.8s ease-out forwards;
+}
+.banner3 {
+  height: 100vh; /* Đặt chiều cao bằng chiều cao của viewport */
+  width: 100vw; /* Đặt chiều rộng bằng chiều rộng của viewport */
+  background-size: cover; /* Đảm bảo hình ảnh bao phủ toàn bộ vùng */
+  background-position: center; /* Căn giữa hình ảnh */
+  background-repeat: no-repeat; /* Ngăn lặp lại hình ảnh */
+}
+.pageThreeContent{
+  align-items: center;
+  color: #fff;
+  display: flex;
+  height: 100%;
+  left: -3%;
+  margin: 0 auto;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  text-align: left;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+}
+
+.pageThree {
+  height: 100vh;
+  width: 100%;
+  background-image: url('/img/banner3.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-three-content .item-content .title {
+  font-size: 20px;
+  margin: 0;
+  padding-bottom: 15px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.pageThreeContent {
+  display: flex;
+  height: 65%;
+  width: 60%;
+  }
+  
+
+
+.page-three-content.item {
+  box-sizing: border-box;
+    height: 100%;
+    padding: 0 30px;
+    position: relative;
+    transition: all .2s !important;
+    width: 25%;
+    margin-left: 10px;
+}
+
+.page-three-content .item:before {
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.itemContent {
+  margin-top: 30vh;
+  transform: translate(0px, 0px);
+    opacity: 1;
+    visibility: inherit; /* Hiệu ứng hover */
+}
+
+.item:hover .itemContent {
+  transform: scale(1.05); /* Phóng to nhẹ khi hover */
+  opacity: 1;
+}
+
+
+.navColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex: 0.5; /* Giảm độ rộng xuống 50% */
+  position: relative;
+  overflow: visible;
+  height: auto;
+  padding: 20px;
+}
+
+.navColumn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100vh;
+  background-color: white;
+}
+
+.navColumn:last-child::after {
+  display: none;
+}
+
+.navColumn:hover {
+  top: fixed;
+  max-height: 400px;
+  max-width: fit-content;
+  background-color: rgba(216, 191, 191, 0.5);
+}
+
+.navItem .title {
+  color: #fff !important;
+  opacity: 0;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  text-align: left;
+  width: 100%;
+  transform: translateY(-30px);
+  animation: titleSlideDown 0.8s ease-out forwards;
+  visibility: hidden;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(150%); /* Bắt đầu từ vị trí dưới ngoài khung nhìn */
+    opacity: 0; /* Bắt đầu với độ mờ 0 */
+  }
+  to {
+    transform: translateY(0); /* Kết thúc tại vị trí ban đầu */
+    opacity: 1; /* Kết thúc với độ mờ 1 */
+  }
+}
+.section.active .navColumn:nth-child(1) .title {
+ 
+  opacity: 0;
+  visibility: visible;
+  animation: slideUp 0.3s ease-out forwards 0.2s;
+}
+
+.section.active .navColumn:nth-child(2) .title {
+  
+  opacity: 0;
+  visibility: visible;
+  animation: slideDown 0.5s ease-out forwards 0.5s;
+  
+}
+
+.section.active .navColumn:nth-child(3) .title {
+
+  opacity: 0;
+  visibility: visible;
+  animation: slideUp 0.7s ease-out forwards 1s;
+  
+}
+
+.section.active .navColumn:nth-child(4) .title {
+  
+  opacity: 0;
+  visibility: visible;
+  animation: slideDown 1s ease-out forwards 1.5s;
+  color: #f93 !important; /* Màu cam cho title Blockchain */
+}
+
+@keyframes titleSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes titleSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navItem .title:hover {
+  transform: scale(1.05);
+  color: orange !important;
+  transition: all 0.3s ease;
+}
+
+.desc {
+  font-size: 12px;
+  line-height: 22px;
+  color: transparent;
+  transition: all 0.3s ease;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  
+}
+
+.navColumn:hover .desc {
+  color: #fff;
+  opacity: 1;
+  max-height: 300px;
+  margin-top: 10px;
+  font-family: Roboto, sans-serif;
+}
+
+.note {
+  color: transparent;
+  font-weight: bold;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.navColumn:hover .note {
+  color: orange;
+  opacity: 1;
+}
+
+
+/* //"page 4" */
+
+.blockchainTitle {
+  color: #f93 !important; /* Màu cam */
+}
+
+.pageFourContent {
+  display: flex;
+  height: 65%;
+  width: 60%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 5;
+}
+
+.tableColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex: 0.5;
+  position: relative;
+  overflow: visible;
+  height: auto;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+/* Đường kẻ dọc giữa các cột */
+.tableColumn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100vh;
+  background-color: white;
+}
+
+/* Bỏ đường kẻ ở cột cuối */
+.tableColumn:last-child::after {
+  display: none;
+}
+
+/* Style cho title của mỗi cột */
+.tableItem .tableTitle {
+  color: #fff !important;
+  opacity: 0;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  text-align: left;
+  width: 100%;
+  transform: translateY(-30px);
+  visibility: hidden;
+}
+
+/* Animation cho từng title */
+.section.active .tableColumn:nth-child(1) .tableTitle {
+  opacity: 0;
+  visibility: visible;
+  animation: slideUp 0.3s ease-out forwards 0.2s;
+}
+
+.section.active .tableColumn:nth-child(2) .tableTitle {
+  opacity: 0;
+  visibility: visible;
+  animation: slideDown 0.5s ease-out forwards 0.5s;
+}
+
+.section.active .tableColumn:nth-child(3) .tableTitle {
+  opacity: 0;
+  visibility: visible;
+  animation: slideUp 0.7s ease-out forwards 1s;
+}
+
+.section.active .tableColumn:nth-child(4) .tableTitle {
+  opacity: 0;
+  visibility: visible;
+  animation: slideDown 1s ease-out forwards 1.5s;
+}
+
+/* Style cho nội dung */
+.tableDesc {
+  font-size: 12px;
+  line-height: 22px;
+  color: transparent;
+  transition: all 0.3s ease;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+}
+
+/* Hiệu ứng hover */
+.tableColumn:hover {
+  background-color: rgba(216, 191, 191, 0.5);
+}
+
+.tableColumn:hover .tableDesc {
+  color: #fff;
+  opacity: 1;
+  max-height: 300px;
+  margin-top: 10px;
+  font-family: Roboto, sans-serif;
+}
+
+/* Style cho các note trong description */
+.tableNote {
+  color: transparent;
+  font-weight: bold;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.tableColumn:hover .tableNote {
+  color: orange;
+  opacity: 1;
+}

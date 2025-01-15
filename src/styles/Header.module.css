@@ -1,0 +1,115 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 40px;
+  z-index: 1000;
+}
+
+/* Default style (white) */
+.logo a,
+.langSwitcher a {
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.menuIcon,
+.menuIcon::before,
+.menuIcon::after {
+  background-color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+/* Dark style (black) */
+.header.dark .logo a,
+.header.dark .langSwitcher a {
+  color: #000;
+}
+
+.header.dark .menuIcon,
+.header.dark .menuIcon::before,
+.header.dark .menuIcon::after {
+  background-color: #000;
+}
+
+.logo a {
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.rightMenu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.langSwitcher {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.langSwitcher a {
+  text-decoration: none;
+  font-size: 14px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.langSwitcher a:hover,
+.langSwitcher a.active {
+  opacity: 1;
+}
+
+.divider {
+  opacity: 0.3;
+}
+
+.menuBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuIcon {
+  width: 24px;
+  height: 2px;
+  background-color: #fff;
+  position: relative;
+}
+
+.menuIcon::before,
+.menuIcon::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background-color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.menuIcon::before {
+  top: -6px;
+}
+
+.menuIcon::after {
+  bottom: -6px;
+}
+
+.menuBtn:hover .menuIcon::before {
+  transform: translateY(1px);
+}
+
+.menuBtn:hover .menuIcon::after {
+  transform: translateY(-1px);
+} 
