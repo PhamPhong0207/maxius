@@ -1,6 +1,4 @@
-
 import styles from "../styles/FullPageExample.module.css";
-
 const PageFirst = () => {
   return (
     <div>
